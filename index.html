@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis Estadístico Tecnológico</title>
+    <style>
+        :root { --cobalto: #0047ab; --slate: #475569; --border: #e2e8f0; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: #fdfdfd; color: #1e293b; margin: 0; padding: 20px; }
+        .container { max-width: 950px; margin: 0 auto; }
+        
+        h1 { text-align: center; color: var(--cobalto); font-size: 2rem; margin-bottom: 30px; }
+        .card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 25px; margin-bottom: 40px; box-shadow: 0 2px 4px rgba(0,0,0,0.02); }
+        
+        h2 { color: var(--cobalto); font-size: 1.4rem; margin-top: 0; display: flex; align-items: center; gap: 8px; }
+        .intro-text { font-size: 0.95rem; color: var(--slate); margin-bottom: 15px; border-bottom: 1px solid #f1f5f9; padding-bottom: 15px; }
+        
+        .table-container { max-height: 250px; overflow-y: auto; border: 1px solid var(--border); border-radius: 6px; margin: 15px 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+        th { background: #f8fafc; padding: 10px; position: sticky; top: 0; border-bottom: 2px solid var(--border); color: #64748b; font-weight: 600; }
+        td { padding: 8px; border-bottom: 1px solid #f1f5f9; text-align: center; }
+        tr:hover { background: #f0f7ff; }
+
+        .footer-info { background: #f1f5f9; padding: 12px; border-radius: 6px; font-size: 0.9rem; color: #334155; line-height: 1.4; }
+        b { color: var(--cobalto); }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Probablidad Y Estadistca: Tipos De Datos Cualitativos</h1>
+
+    <div class="card">
+        <h2>Dato Cuantitativo Discreto</h2>
+        <div class="intro-text">
+            <b>Origen y Definición:</b> Estos datos provienen de un proceso de <b>conteo</b> de elementos finitos. En tecnología, surgen de auditorías de hardware o inventarios de red. Representan cantidades aisladas que no admiten valores intermedios; por ejemplo, una empresa puede tener 50 o 51 servidores, pero nunca 50.5. Son esenciales para el cálculo de presupuestos y logística física.
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clase</th>
+                        <th>Límite Inf.</th>
+                        <th>Límite Sup.</th>
+                        <th>Marca ($x_i$)</th>
+                        <th>$f_a$ (unidades)</th>
+                        <th>$f_r$ (%)</th>
+                    </tr>
+                </thead>
+                <tbody id="t-discreta"></tbody>
+            </table>
+        </div>
+
+        <div class="footer-info">
+            <b>¿Cómo identificarlo?</b> Busca siempre números enteros resultantes de una suma de unidades. Si al intentar dividir el dato este pierde su lógica (como media laptop), estás ante un dato discreto. Su diferencia clave es que los "saltos" entre valores son exactos y definidos.
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Dato Cuantitativo Continuo</h2>
+        <div class="intro-text">
+            <b>Origen y Definición:</b> Se originan a través de la <b>medición</b> mediante instrumentos de precisión (como software de monitoreo de banda ancha o sensores de temperatura). A diferencia de los discretos, estos pueden tomar cualquier valor decimal dentro de un rango infinito. En sistemas, esto se traduce en milisegundos de latencia o consumo de energía en Watts, donde cada decimal cuenta para la optimización.
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clase</th>
+                        <th>Límite Inf.</th>
+                        <th>Límite Sup.</th>
+                        <th>Marca ($x_i$)</th>
+                        <th>$f_a$ (registros)</th>
+                        <th>$f_r$ (%)</th>
+                    </tr>
+                </thead>
+                <tbody id="t-continua"></tbody>
+            </table>
+        </div>
+
+        <div class="footer-info">
+            <b>¿Cómo identificarlo?</b> Se reconoce por la presencia de decimales y el uso de herramientas de medida. La gran diferencia es su densidad: entre dos valores cualesquiera (ej. 1.5ms y 1.6ms), siempre puede existir un valor intermedio más preciso (1.55ms).
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>Dato Cualitativo</h2>
+        <div class="intro-text">
+            <b>Origen y Definición:</b> Estos datos no provienen de números, sino de la <b>categorización</b> y observación de cualidades o etiquetas. Surgen de encuestas de satisfacción de usuario o especificaciones de arquitectura de software. Su función principal es agrupar la información en clases mutuamente excluyentes para identificar tendencias de mercado o preferencias de interfaz sin aplicar cálculos aritméticos.
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Atributo (Tecnología)</th>
+                        <th>Categoría</th>
+                        <th>$f_a$ (menciones)</th>
+                        <th>$f_r$ (%)</th>
+                    </tr>
+                </thead>
+                <tbody id="t-cualitativa"></tbody>
+            </table>
+        </div>
+
+        <div class="footer-info">
+            <b>¿Cómo identificarlo?</b> La respuesta es una cualidad o nombre, no una magnitud. A diferencia de los cuantitativos, no puedes calcular un "promedio" de sistemas operativos; solo puedes identificar cuál es la "moda" o la categoría más frecuente.
+        </div>
+    </div>
+</div>
+
+<script>
+    function generar() {
+        const d = document.getElementById('t-discreta');
+        const c = document.getElementById('t-continua');
+        const l = document.getElementById('t-cualitativa');
+        const categorias = ['Cloud Computing', 'Cybersecurity', 'AI Model', 'Blockchain', 'IoT'];
+
+        for(let i=1; i<=100; i++) {
+            // Lógica de límites basada en tu imagen (intervalos de 0.33)
+            let li = (i * 0.33).toFixed(2);
+            let ls = (parseFloat(li) + 0.33).toFixed(2);
+            let mc = ((parseFloat(li) + parseFloat(ls))/2).toFixed(3);
+            let fa = Math.floor(Math.random()*15) + 1;
+
+            // Discreta (Stock de dispositivos)
+            d.innerHTML += `<tr><td>${i}</td><td>${Math.floor(li)}</td><td>${Math.floor(ls)}</td><td>${Math.round(mc)}</td><td>${fa}</td><td>${(fa/100).toFixed(2)}</td></tr>`;
+            
+            // Continua (Velocidad de procesamiento GHz)
+            c.innerHTML += `<tr><td>${i}</td><td>${li}</td><td>${ls}</td><td>${mc}</td><td>${fa}</td><td>${(fa/100).toFixed(2)}</td></tr>`;
+            
+            // Cualitativa (Tecnologías emergentes)
+            let cat = categorias[Math.floor(Math.random()*5)];
+            l.innerHTML += `<tr><td>#${i}</td><td>${cat}</td><td>Software</td><td>${fa}</td><td>${fa}%</td></tr>`;
+        }
+    }
+    generar();
+</script>
+
+</body>
+</html>
